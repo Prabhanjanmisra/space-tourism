@@ -65,13 +65,13 @@
 
   <header>
     <div id="title">
-      <p><span class="title-no.">01 </span>Pick your Destination</p>
+      <p><span class="title-no">01 </span>Pick your Destination</p>
     </div>
   </header>
 
   <main>
     <img src="assets/destination/image-moon.png" alt="Moon image">
-    <div class="content box">
+    <div class="content-box">
 
 
       <div class="links">
@@ -104,11 +104,15 @@
 
       <div class="inner-line"></div>
 
-      <div class="inner-grid">
-        <div class="grid-text">Avg. Distance</div>
-        <div class="grid-text">Est. Travel Time</div>
-        <div class="grid-text-2">384,000 km</div>
-        <div class="grid-text-2">3 days</div>
+      <div class="inner-flex">
+          <div class="inner-flex-box">
+            <p>Avg. distance</p>
+            <h3>384,000 KM</h3>
+          </div>
+          <div class="inner-flex-box">
+            <p>est. travel time</p>
+            <h3>3 days</h3>
+          </div>
       </div>
     </div>
   </main>
@@ -140,7 +144,7 @@
       console.log(e);
       let x = e.target.firstElementChild.id;
       console.log(x);
-      if (x !== 'link-1') {
+      if (x !== 'link-2') {
         document.querySelector(`#${x}-underline`).style.display = "block";
         setTimeout(() => {
           document.querySelector(`#${x}-underline`).style.opacity = "0.7";
@@ -154,7 +158,7 @@
       console.log(e);
       let x = e.target.firstElementChild.id;
       console.log(x);
-      if (x !== 'link-1') {
+      if (x !== 'link-2') {
         document.querySelector(`#${x}-underline`).style.opacity = "0";
         setTimeout(() => {
           document.querySelector(`#${x}-underline`).style.display = "none";
@@ -163,6 +167,43 @@
     });
   });
 
+
+
+
+
+
+
+
+  //Inner-links hover states
+  document.querySelectorAll(".link a").forEach(element => {
+    element.addEventListener("mouseenter", (e) => {
+      console.log(e);
+      let x = e.target.id;
+      console.log(x);
+      if (x !== 'inner-link-1') {
+        document.querySelector(`#${x}-underline`).style.display = "block";
+        setTimeout(() => {
+          document.querySelector(`#${x}-underline`).style.opacity = "0.7";
+          document.querySelector(`#${x}-underline`).style.width = "100%";
+        }, 200);
+      }
+    });
+  });
+
+  document.querySelectorAll(".link a").forEach(element => {
+    element.addEventListener("mouseleave", (e) => {
+      console.log(e);
+      let x = e.target.id;
+      console.log(x);
+      if (x !== 'inner-link-1') {
+        document.querySelector(`#${x}-underline`).style.opacity = "0";
+        document.querySelector(`#${x}-underline`).style.width = "0%";
+        setTimeout(() => {
+          document.querySelector(`#${x}-underline`).style.display = "none";
+        }, 200);
+      }
+    });
+  });
 
 
 

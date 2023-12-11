@@ -1,28 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+
+  <link rel="stylesheet" href="styles/crew-pilot.css">
+
   <title>Frontend Mentor | Space tourism website</title>
 </head>
+
 <body>
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+  <div class="blur-background"></div>
+  <div id="navbar">
+    <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+      <g fill="none" fill-rule="evenodd">
+        <circle cx="24" cy="24" r="24" fill="#FFF" />
+        <path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z" />
+      </g>
+    </svg>
 
-  02 Meet your crew
+    <div class="line"></div>
 
-  Pilot
-  Victor Glover
+    <div id="nav-items">
+      <div class="nav-link">
+        <a id="link-1" href="index.html"><span class="link-no">00</span>Home</a>
+        <div class="nav-link-underline" id="link-1-underline"></div>
+      </div>
+      <div class="nav-link">
+        <a id="link-2" href="destination-moon.html"><span class="link-no">01</span>Destination</a>
+        <div class="nav-link-underline" id="link-2-underline"></div>
+      </div>
+      <div class="nav-link">
+        <a id="link-3" href="crew-commander.html"><span class="link-no">02</span>Crew</a>
+        <div class="nav-link-underline" id="link-3-underline"></div>
+      </div>
+      <div class="nav-link">
+        <a id="link-4" href="technology-vehicle.html"><span class="link-no">03</span>Technology</a>
+        <div class="nav-link-underline" id="link-4-underline"></div>
+      </div>
+    </div>
 
-  Pilot on the first operational flight of the SpaceX Crew Dragon to the 
-  International Space Station. Glover is a commander in the U.S. Navy where 
-  he pilots an F/A-18.He was a crew member of Expedition 64, and served as a 
-  station systems flight engineer. 
+    <div id="hamburger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21">
+        <g fill="#D0D6F9" fill-rule="evenodd">
+          <path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" />
+        </g>
+      </svg>
+    </div>
+    <div id="close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21">
+        <g fill="#D0D6F9" fill-rule="evenodd">
+          <path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z" />
+          <path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z" />
+        </g>
+      </svg>
+    </div>
+
+  </div>
+
+
+  <header>
+    <div id="title">
+      <p><span class="title-no">02 </span>Meet your crew</p>
+    </div>
+  </header>
+
+  <main>
+    <img src="assets/crew/image-victor-glover.png" alt="crew image">
+    <div class="content-box">
+
+      <h2>Pilot</h2>
+      <h1>Victor Glover</h1>
+
+      <p>
+        Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer.
+      </p>
+
+      <div class="links">
+          <a href="crew-commander.html"></a>
+          <a href="crew-specialist.html"></a>
+          <a href="crew-pilot.html"></a>
+          <a href="crew-engineer.html"></a>
+      </div>
+
+
+    </div>
+  </main>
+
+
+  <div id="nav-items-mobile">
+    <div class="nav-link">
+      <a href="index.html"><span class="link-no">00</span>Home</a>
+    </div>
+    <div class="nav-link">
+      <a href="destination-moon.html"><span class="link-no">01</span>Destination</a>
+    </div>
+    <div class="nav-link">
+      <a href="crew-commander.html"><span class="link-no">02</span>Crew</a>
+    </div>
+    <div class="nav-link">
+      <a href="technology-vehicle.html"><span class="link-no">03</span>Technology</a>
+    </div>
+  </div>
+
 </body>
+
+<script>
+
+  //Navbar Hover states
+
+  document.querySelectorAll(".nav-link").forEach(element => {
+    element.addEventListener("mouseenter", (e) => {
+      console.log(e);
+      let x = e.target.firstElementChild.id;
+      console.log(x);
+      if (x !== 'link-3') {
+        document.querySelector(`#${x}-underline`).style.display = "block";
+        setTimeout(() => {
+          document.querySelector(`#${x}-underline`).style.opacity = "0.7";
+        }, 200);
+      }
+    });
+  });
+
+  document.querySelectorAll(".nav-link").forEach(element => {
+    element.addEventListener("mouseleave", (e) => {
+      console.log(e);
+      let x = e.target.firstElementChild.id;
+      console.log(x);
+      if (x !== 'link-3') {
+        document.querySelector(`#${x}-underline`).style.opacity = "0";
+        setTimeout(() => {
+          document.querySelector(`#${x}-underline`).style.display = "none";
+        }, 200);
+      }
+    });
+  });
+
+
+
+
+
+
+
+
+  //Mobile
+
+  let hamburger = document.querySelector("#hamburger");
+  let close = document.querySelector("#close");
+  let menu = document.querySelector("#nav-items-mobile");
+
+  hamburger.addEventListener("click", openMenu);
+  close.addEventListener("click", closeMenu);
+
+
+  function openMenu() {
+    hamburger.style.display = "none";
+    menu.style.display = "flex";
+    close.style.display = "block";
+  };
+
+  function closeMenu() {
+    hamburger.style.display = "block";
+    menu.style.display = "none";
+    close.style.display = "none";
+  }
+
+
+  let myMediaQuery = window.matchMedia('(min-width: 560px)');
+  function widthChangeCallback(myMediaQuery) {
+    if (myMediaQuery.matches) {
+      hamburger.style.display = "none";
+      close.style.display = "none";
+      menu.style.display = "none";
+    }
+    else {
+      hamburger.style.display = "block";
+    }
+  }
+  myMediaQuery.addEventListener('change', widthChangeCallback);
+
+</script>
+
 </html>
