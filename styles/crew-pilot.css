@@ -51,10 +51,10 @@ h2 {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: no-repeat center center/cover url(../assets/crew/background-crew-desktop.jpg);
     padding: 40px 165px 131px 55px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #hamburger,
@@ -162,6 +162,10 @@ main {
     justify-content: space-between;
     min-height: 445px;
     flex-direction: row;
+}
+
+html {
+    position: relative;
 }
 
 main img {
